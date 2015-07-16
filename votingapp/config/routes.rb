@@ -1,46 +1,52 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'user/index'
 
-  get 'user/show'
+  get 'static/about'
 
-  get 'user/new'
+  get 'static/home'
 
-  get 'user/create'
+  root to: "static#home"
+  # get 'user/index'
 
-  get 'user/edit'
+  # get 'user/show'
 
-  get 'user/update'
+  # get 'user/new'
 
-  get 'user/destroy'
+  # get 'user/create'
 
-  get 'candidate/index'
+  # get 'user/edit'
 
-  get 'candidate/show'
+  # get 'user/update'
 
-  get 'candidate/new'
+  # get 'user/destroy'
 
-  get 'candidate/create'
+  # get 'candidate/index'
 
-  get 'candidate/edit'
+  # get 'candidate/show'
 
-  get 'candidate/update'
+  # get 'candidate/new'
 
-  get 'candidate/destroy'
+  # get 'candidate/create'
 
-  get 'position/index'
+  # get 'candidate/edit'
 
-  get 'position/show'
+  # get 'candidate/update'
 
-  get 'position/new'
+  # get 'candidate/destroy'
 
-  get 'position/create'
+  # get 'position/index'
 
-  get 'position/edit'
+  # get 'position/show'
 
-  get 'position/update'
+  # get 'position/new'
 
-  get 'position/destroy'
+  # get 'position/create'
+
+  # get 'position/edit'
+
+  # get 'position/update'
+
+  # get 'position/destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
