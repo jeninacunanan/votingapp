@@ -11,7 +11,10 @@
      <%= f.input :password_confirmation, required: true %>
     <%= f.input :first_name, required: true %>
     <%= f.input :last_name, required: true %>
-    <!--<%= f.input :birthday, required: true %>-->
+<!--     <%= f.input :birthday, required: true %> -->
+
+    <%= f.input :birthday, :as => :date_picker, required: true %>
+
     <%= f.input :gender, collection: [:male, :female], required: true %>
   </div>
 
