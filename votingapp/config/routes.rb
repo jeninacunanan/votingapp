@@ -1,52 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  resources 'users'
+
+  resources 'candidates'
+
+  resources 'positions'
+
   get 'static/about'
 
   get 'static/home'
 
   root to: "static#home"
-  # get 'user/index'
-
-  # get 'user/show'
-
-  # get 'user/new'
-
-  # get 'user/create'
-
-  # get 'user/edit'
-
-  # get 'user/update'
-
-  # get 'user/destroy'
-
-  # get 'candidate/index'
-
-  # get 'candidate/show'
-
-  # get 'candidate/new'
-
-  # get 'candidate/create'
-
-  # get 'candidate/edit'
-
-  # get 'candidate/update'
-
-  # get 'candidate/destroy'
-
-  # get 'position/index'
-
-  # get 'position/show'
-
-  # get 'position/new'
-
-  # get 'position/create'
-
-  # get 'position/edit'
-
-  # get 'position/update'
-
-  # get 'position/destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
