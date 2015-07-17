@@ -14,7 +14,7 @@
 					<p class="navbar-text pull-right">
 						Logged in as
 					<% if user_signed_in? %>
-						<%= current_user do %>
+						<%= link_to current_user do %>
 					  	 <strong><%= current_user.email %></strong>.
 			            <% end %>
 					  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
