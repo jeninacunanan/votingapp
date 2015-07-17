@@ -45,7 +45,7 @@ class VotingController < ApplicationController
   end
 
   def destroy
-    @vote.update(candidate_id: 0)
+    @vote.update(candidate_id: 0, comments: "")
     flash[:notice] = "User abstains from voting for \"#{Position.find_by(id: @vote.position_id).name}\" position!"
     redirect_to voting_index_path
   end
