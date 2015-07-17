@@ -25,7 +25,11 @@ class VotingController < ApplicationController
   def create
     @vote = Vote.new(vote_params)
     if @vote.save
-      flash[:notice] = "Vote successfully cast for \"#{Position.find_by(id: @vote.position_id).name}\" position!"
+      if @vote.candidate_id != 0
+        flash[:notice] = "Vote successfully cast for \"#{Position.find_by(id: @vote.position_id).name}\" position!"
+      else
+        flash[:notice] = "User abstains from voting for \"#{Position.find_by(id: @vote.position_id).name}\" position!"
+      end
       redirect_to voting_index_path
     else
       render 'new'
@@ -37,7 +41,11 @@ class VotingController < ApplicationController
 
   def update
     if @vote.update(vote_params)
-      flash[:notice] = "Vote successfully recast for \"#{Position.find_by(id: @vote.position_id).name}\" position!"
+      if @vote.candidate_id != 0
+        flash[:notice] = "Vote successfully recast for \"#{Position.find_by(id: @vote.position_id).name}\" position!"
+      else
+        flash[:notice] = "User abstains from voting for \"#{Position.find_by(id: @vote.position_id).name}\" position!"
+      end
       redirect_to voting_index_path
     else
       render 'edit'
