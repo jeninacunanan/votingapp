@@ -1,5 +1,6 @@
 class CandidateController < ApplicationController
   def index
+    @candidates = Candidate.all
   end
 
   def show

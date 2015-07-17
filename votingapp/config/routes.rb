@@ -7,9 +7,7 @@ Rails.application.routes.draw do
 
   resources 'positions'
 
-  get 'static/about'
-
-  get 'static/home'
+  get '/about' => 'static#about'
 
   root to: "static#home"
 
