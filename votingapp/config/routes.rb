@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources 'positions'
 
+  resources 'admins'
+
   get '/about' => 'static#about'
 
   root to: "static#home"
