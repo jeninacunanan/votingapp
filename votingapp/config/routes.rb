@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'voting/index'
+
+  get 'voting/show'
+
+  get 'voting/new'
+
+  get 'voting/create'
+
+  get 'voting/edit'
+
+  get 'voting/update'
+
+  get 'voting/destroy'
+
   devise_for :admins
   devise_for :users
 
