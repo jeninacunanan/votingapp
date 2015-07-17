@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 20150717062727) do
 
   create_table "votes", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "position_id"
     t.integer  "candidate_id"
     t.text     "comments"
     t.datetime "created_at",   null: false
@@ -78,7 +77,6 @@ ActiveRecord::Schema.define(version: 20150717062727) do
   end
 
   add_index "votes", ["candidate_id"], name: "index_votes_on_candidate_id"
-  add_index "votes", ["position_id"], name: "index_votes_on_position_id"
   add_index "votes", ["user_id"], name: "index_votes_on_user_id"
 
 end

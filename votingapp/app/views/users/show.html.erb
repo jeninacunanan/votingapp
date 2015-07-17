@@ -1,2 +1,18 @@
-<h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
+<h1>User Profile</h1>
+
+<strong>Email:</strong>
+<p><%= current_user.email %></p>
+
+<strong>First Name:</strong>
+<p><%= current_user.first_name %></p>
+
+<strong>Last Name:</strong>
+<p><%= current_user.last_name %></p>
+
+<strong>Birthday:</strong>
+<p><%= current_user.birthday %></p>
+
+<strong>Gender:</strong>
+<p><%= current_user.gender %></p>
+
+ <%= link_to 'Edit', edit_user_registration_path %> | <%= link_to 'Back', :back %>
