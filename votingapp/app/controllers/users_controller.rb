@@ -1,8 +1,9 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+
   def index
-    @users = User.excludes(:id => current_user.id)
+    @users = User.exclude?(:id => current_user.id)
   end
 
   def show
