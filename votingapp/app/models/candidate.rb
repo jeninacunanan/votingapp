@@ -4,4 +4,5 @@ class Candidate < ActiveRecord::Base
 
 	validates :first_name, presence: :true
 	validates :last_name, presence: :true
+	validates :slogan, presence: :true, uniqueness: :true
 end
