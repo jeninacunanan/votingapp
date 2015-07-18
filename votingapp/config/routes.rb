@@ -13,7 +13,6 @@ Rails.application.routes.draw do
 
   get 'voting/destroy'
 
-  devise_for :admins
   devise_for :users
 
   resources 'users'
@@ -21,8 +20,6 @@ Rails.application.routes.draw do
   resources 'candidates'
 
   resources 'positions'
-
-  resources 'admins'
 
   get '/about' => 'static#about'
 
