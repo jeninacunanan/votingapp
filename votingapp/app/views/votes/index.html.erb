@@ -10,8 +10,8 @@
 		</thead>
 		<tbody>
 			<% if !@votes.nil? %>
-				<tr>
 					<% @votes.each do |v| %>
+					<tr>
 						<td><%= "#{Position.find_by(id: v.position_id).name}" %></td>
 						<% if v.candidate_id > 0 %>
 							<td><%= "#{Candidate.find_by(id: v.candidate_id).last_name.upcase}, #{Candidate.find_by(id: v.candidate_id).first_name}" %></td>
@@ -22,8 +22,8 @@
 							<td><%= "#{v.comments}" %></td>
 							<td><%= link_to "Edit", edit_vote_path(v.id), class: 'btn btn-xs btn-success' %> <button type='button' class='btn btn-xs btn-danger' disabled='disabled'>Abstain</button></td>
 						<% end %>
-					<% end %>
-				</tr>			
+					</tr>
+					<% end %>			
 			<% end %>
 		</tbody>
 	</table>

@@ -1,4 +1,4 @@
-<h1><%= "Edit Vote for \"#{Position.find_by(@vote.position_id).name}\" position" %></h1>
+<h1><%= "Edit Vote for \"#{Position.find(@vote.position_id).name}\" position" %></h1>
 
 <%= simple_form_for @vote do |v| %>
 	<% if @vote.candidate_id != 0 %>
