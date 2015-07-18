@@ -12,9 +12,9 @@
 			<% if !@votes.nil? %>
 				<tr>
 					<% @votes.each do |v| %>
-						<td><% "#{Position.find_by(id: v.position_id).name}" %></td>
+						<td><%= "#{Position.find_by(id: v.position_id).name}" %></td>
 						<% if v.candidate_id > 0 %>
-							<td><% "#{Candidate.find_by(id: candidate_id).last_name.upcase}, #{Candidate.find_by(id: candidate_id).first_name}" %></td>
+							<td><%= "#{Candidate.find_by(id: v.candidate_id).last_name.upcase}, #{Candidate.find_by(id: v.candidate_id).first_name}" %></td>
 							<td><%= "#{v.comments}" %></td>
 							<td><%= link_to "Edit", edit_vote_path(v.id), class: 'btn btn-xs btn-success' %> <%= link_to "Abstain", vote_path(v.id), method: :delete, class: 'btn btn-xs btn-danger' %></td>
 						<% else %>
