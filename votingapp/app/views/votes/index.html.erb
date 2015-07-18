@@ -16,16 +16,16 @@
 						<% if v.candidate_id > 0 %>
 							<td><% "#{Candidate.find_by(id: candidate_id).last_name.upcase}, #{Candidate.find_by(id: candidate_id).first_name}" %></td>
 							<td><%= "#{v.comments}" %></td>
-							<td><%= link_to "Edit", edit_voting_path(v.id), class: 'btn btn-xs btn-success' %> <%= link_to "Abstain", voting_path(v.id), method: :delete, class: 'btn btn-xs btn-danger' %></td>
+							<td><%= link_to "Edit", edit_vote_path(v.id), class: 'btn btn-xs btn-success' %> <%= link_to "Abstain", vote_path(v.id), method: :delete, class: 'btn btn-xs btn-danger' %></td>
 						<% else %>
 							<td><i>Abstained</i></td>
 							<td><%= "#{v.comments}" %></td>
-							<td><%= link_to "Edit", edit_voting_path(v.id), class: 'btn btn-xs btn-success' %> <button type='button' class='btn btn-xs btn-danger' disabled='disabled'>Abstain</button></td>
+							<td><%= link_to "Edit", edit_vote_path(v.id), class: 'btn btn-xs btn-success' %> <button type='button' class='btn btn-xs btn-danger' disabled='disabled'>Abstain</button></td>
 						<% end %>
 					<% end %>
 				</tr>			
 			<% end %>
 		</tbody>
 	</table>
-	<%= link_to "Add new vote", new_voting_path, class: 'btn btn-primary' %>
+	<%= link_to "Add new vote", new_vote_path, class: 'btn btn-primary' %>
 </div>

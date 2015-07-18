@@ -1,4 +1,4 @@
-class VotingController < ApplicationController
+class VotesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_vote, only: [:show, :edit, :update, :destroy]
 
@@ -24,7 +24,7 @@ class VotingController < ApplicationController
       else
         flash[:notice] = "User abstains from voting for \"#{Position.find_by(id: @vote.position_id).name}\" position!"
       end
-      redirect_to voting_index_path
+      redirect_to votes_path
     else
       render 'new'
     end
@@ -40,7 +40,7 @@ class VotingController < ApplicationController
       else
         flash[:notice] = "User abstains from voting for \"#{Position.find_by(id: @vote.position_id).name}\" position!"
       end
-      redirect_to voting_index_path
+      redirect_to votes_path
     else
       render 'edit'
     end
@@ -49,7 +49,7 @@ class VotingController < ApplicationController
   def destroy
     @vote.update(candidate_id: 0, comments: "")
     flash[:notice] = "User abstains from voting for \"#{Position.find_by(id: @vote.position_id).name}\" position!"
-    redirect_to voting_index_path
+    redirect_to votes_path
   end
 
   private

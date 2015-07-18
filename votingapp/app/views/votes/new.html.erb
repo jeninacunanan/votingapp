@@ -1,0 +1,6 @@
+<%= simple_form_for @vote do |v| %>
+	<%= v.input :position_id, as: :select, collection: Position.all, label: "Position", label_method: lambda {|x| "#{Position.find(x).name}"} %>
+	<%= v.input :candidate_id, as: :select, collection: Candidate.where(position_id: :position_id), label: "Candidate", label_method: lambda {|x| "#{Candidate.find(x).last_name.upcase}, #{Candidate.find(x).first_name}"} %>
+	<%= v.input :comments, as: :text %>
+	<%= v.button :submit %>
+<% end %>

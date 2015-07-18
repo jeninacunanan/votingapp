@@ -13,7 +13,7 @@
 					<p class= "navbar-text">
 						<strong><%= link_to 'Election 2016', root_path, :class => 'navbar-link' %>&nbsp; </strong>
 						|
-						<strong><% if user_signed_in? %> &nbsp; <%= link_to 'Vote', voting_index_path(current_user.id), :class => 'navbar-link' %>&nbsp; |<% end %></strong>
+						<strong><% if user_signed_in? %> &nbsp; <%= link_to 'Vote', votes_path(current_user.id), :class => 'navbar-link' %>&nbsp; |<% end %></strong>
 						<strong> &nbsp; <%= link_to 'About', about_path, :class => 'navbar-link' %></strong>
 					</p>
 					<p class="navbar-text pull-right">

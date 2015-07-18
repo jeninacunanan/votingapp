@@ -22,11 +22,7 @@ Rails.application.routes.draw do
   resources 'positions'
 
   # resources 'admins'
-  resources 'voting'
-
-  namespace 'votes' do
-    resources 'voting'
-  end
+  resources 'votes'
 
   get '/about' => 'static#about'
   # get '/vote' => 'voting#show'
