@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.exclude?(:id => current_user.id)
+    @users = User.all
   end
 
   def show

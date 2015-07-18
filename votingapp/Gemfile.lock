@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/derekprior/momentjs-rails.git
+  revision: 85334f46df85cccb4c8fbaf07f0757f57801b9a9
+  specs:
+    momentjs-rails (2.10.3)
+      railties (>= 3.1)
+
+GIT
   remote: git://github.com/zpaulovics/datetimepicker-rails.git
   revision: 36d21cec5da7f5b214925804f60e63c61c747023
   branch: master
@@ -6,13 +13,6 @@ GIT
   specs:
     datetimepicker-rails (4.7.16)
       momentjs-rails (>= 2.9.0)
-
-GIT
-  remote: git://github.com/derekprior/momentjs-rails.git
-  revision: 85334f46df85cccb4c8fbaf07f0757f57801b9a9
-  specs:
-    momentjs-rails (2.10.3)
-      railties (>= 3.1)
 
 GEM
   remote: http://rubygems.org/
@@ -69,7 +69,6 @@ GEM
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
-    cancan (1.6.10)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -143,7 +142,6 @@ GEM
       json (~> 1.4)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
-    role_model (0.8.2)
     sass (3.4.16)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -191,7 +189,6 @@ DEPENDENCIES
   better_errors
   bootstrap-sass
   byebug
-  cancan (~> 1.6.10)
   coffee-rails (~> 4.1.0)
   datetimepicker-rails!
   devise
@@ -199,7 +196,6 @@ DEPENDENCIES
   jquery-rails
   momentjs-rails (~> 2.9)!
   rails (= 4.2.0)
-  role_model (~> 0.8.2)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simple_form

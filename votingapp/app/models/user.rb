@@ -3,12 +3,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-       
-   include RoleModel
-   #sets up accessible or protected attributes for model
-   #attr_accessible :email, :password, :roles
-
-   roles :admin, :user
 
 	has_many :votes
 
