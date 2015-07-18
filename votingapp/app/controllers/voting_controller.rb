@@ -70,4 +70,3 @@ class VotingController < ApplicationController
     def set_vote
       @vote = Vote.find(params[:id])
     end
-end

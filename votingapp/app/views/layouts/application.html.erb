@@ -13,7 +13,7 @@
 					<p class= "navbar-text">
 						<strong><%= link_to 'Election 2016', root_path, :class => 'navbar-link' %></strong>
 						|
-						<strong>Vote</strong>
+						<strong><%= link_to 'Vote', voting_index_path(current_user.id), :class => 'navbar-link' %></strong>
 						|
 						<strong> <%= link_to 'About', about_path, :class => 'navbar-link' %></strong>
 					</p>
@@ -38,37 +38,5 @@
 		<%= yield %>
 		
 	</div>
-
-	<!-- BELOW FOR FANCY LOOKING -->
-<!-- 	<div class = "container">
-		<nav class="navbar navbar-default">
-		  <div class="container-fluid">
-		    <div class="navbar-header">
-		      <a class="navbar-brand active" href="#">Elections 2016</a>
-		    </div>
-
-		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      <ul class="nav navbar-nav">
-		        <li><a href="#">Vote</a></li>
-		        <li><a href="#">About</a></li>
-		      </ul>
-
-		     <p class="navbar-text pull-right">
-					<% if user_signed_in? %>
-						Logged in as
-						<%= link_to current_user do %>
-					  	 <strong><%= current_user.email %></strong>.
-			            <% end %>
-					  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-					  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-					<% else %>
-					  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-					  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-					<% end %>
-			</p>
-		    </div>
-		  </div>
-		</nav>
-	</div> -->
 </body>
 </html>

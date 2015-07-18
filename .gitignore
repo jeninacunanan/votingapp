@@ -2,3 +2,5 @@
 *.lock
 *.sqlite3
 *.sqlite3
+*.sqlite3
+votingapp/Gemfile.lock

@@ -1,32 +1,32 @@
 Rails.application.routes.draw do
-  get 'voting/index'
+  # get 'voting/index'
 
-  get 'voting/show'
+  # get 'voting/show'
 
-  get 'voting/new'
+  # get 'voting/new'
 
-  get 'voting/create'
+  # get 'voting/create'
 
-  get 'voting/edit'
+  # get 'voting/edit'
 
-  get 'voting/update'
+  # get 'voting/update'
 
-  get 'voting/destroy'
+  # get 'voting/destroy'
 
-  devise_for :admins
+  # devise_for :admins
   devise_for :users
 
   resources 'users'
-
   resources 'candidates'
-
   resources 'positions'
-
-  resources 'admins'
+  # resources 'admins'
+  resources 'voting'
 
   get '/about' => 'static#about'
+  # get '/vote' => 'voting#show'
 
   match 'users/:id' => 'users#show', via: :get
+  # match 'vote/:id' => 'voting#show', via: :get
 
   root to: "static#home"
 

@@ -1,32 +1,36 @@
 <!--<h1>Voting#index</h1>
 <p>Find me in app/views/voting/index.html.erb</p>-->
-<table>
-	<thead>
-		<th>Position</th>
-		<th>Candidate</th>
-		<th>Comments</th>
-		<th></th>
-	</thead>
-	<tbody>
-		<% @votes.each do |v| %>
-			<tr>
-				<td><%= v.position %></td>
-				<% if v.id != -1 %>
-					<% if v.candidate > 0 %>
-						<td><%= "#{Candidate.find_by(id: v.candidate).last_name.upcase}, #{Candidate.find_by(id: v.candidate).first_name}" %></td>
-						<td><i><%= "\"#{Vote.find_by(id: v.id).comments}\"" %></i></td>
-						<td><%= link_to 'Edit Vote', voting_edit_path(v.id), class: 'btn btn-success btn-xs' %> <%= link_to 'Abstain', voting_destroy_path, class: 'btn btn-danger btn-xs' %></td>
-					<% elsif v.candidate == 0 %>
-						<td><i>Abstained</i></td>
-						<td><i><%= "\"#{Vote.find_by(id: v.id).comments}\"" %></i></td>
-						<td><%= link_to 'Edit Vote', voting_new_path(v.id), class: 'btn btn-success btn-xs' %> <button type="button" class="btn btn-danger btn-xs" disabled="disabled">Abstain</button></td>
+<div class = "container">
+	<h1>Your Votes</h1>
+	<table class = "table table-striped">
+		<thead>
+			<div class="row">
+				<div class="col-md-3.5"><th><b>Candidate</b></th></div>
+				<div class="col-md-3.5"><th><b>Position</b></th></div>
+				<div class="col-md-5"><th><b>Coments</b></th></div>
+			</div>
+		</thead>
+		<tbody>
+			<% @votes.each do |v| %>
+				<tr>
+					<td><%= v.position %></td>
+					<% if v.id != -1 %>
+						<% if v.candidate > 0 %>
+							<td><%= "#{Candidate.find_by(id: v.candidate).last_name.upcase}, #{Candidate.find_by(id: v.candidate).first_name}" %></td>
+							<td><i><%= "\"#{Vote.find_by(id: v.id).comments}\"" %></i></td>
+							<td><%= link_to 'Edit Vote', voting_edit_path(v.id), class: 'btn btn-success btn-xs' %> <%= link_to 'Abstain', voting_destroy_path, class: 'btn btn-danger btn-xs' %></td>
+						<% elsif v.candidate == 0 %>
+							<td><i>Abstained</i></td>
+							<td><i><%= "\"#{Vote.find_by(id: v.id).comments}\"" %></i></td>
+							<td><%= link_to 'Edit Vote', voting_new_path(v.id), class: 'btn btn-success btn-xs' %> <button type="button" class="btn btn-danger btn-xs" disabled="disabled">Abstain</button></td>
+						<% end %>
+					<% else %>
+						<td><i>None</i></td>
+						<td><i>Vote not yet cast!</i></td>
+						<td><%= link_to 'New Vote', voting_new_path, class: 'btn btn-primary btn-xs' %> <%= link_to 'Abstain', voting_destroy_path, class: 'btn btn-danger btn-xs' %></td>
 					<% end %>
-				<% else %>
-					<td><i>None</i></td>
-					<td><i>Vote not yet cast!</i></td>
-					<td><%= link_to 'New Vote', voting_new_path, class: 'btn btn-primary btn-xs' %> <%= link_to 'Abstain', voting_destroy_path, class: 'btn btn-danger btn-xs' %></td>
-				<% end %>
-			</tr>			
-		<% end %>
-	</tbody>
-</table>
+				</tr>			
+			<% end %>
+		</tbody>
+	</table>
+</div>
