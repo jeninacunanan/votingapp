@@ -1,4 +1,4 @@
-class PositionController < ApplicationController
+class PositionsController < ApplicationController
   before_action :set_position, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -35,7 +35,7 @@ class PositionController < ApplicationController
 
   def destroy
     @position.destroy
-    redirect_to positions_path
+    redirect_to position_index_path
   end
 
   private
