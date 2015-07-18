@@ -5,6 +5,8 @@ gem 'better_errors', group: :development
 gem 'simple_form'
 gem 'devise'
 gem 'bootstrap-sass'
+gem 'cancan', '~> 1.6.10'
+gem 'role_model', '~> 0.8.2'
 
 gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
