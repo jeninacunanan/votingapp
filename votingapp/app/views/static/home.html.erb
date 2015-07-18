@@ -1,24 +1,26 @@
 
 <div class = "container">
-	<h1>X Candidates for Y</h1>
-	<table class = "table table-striped">
-		<thead>
-			<div class="row">
-			  <div class="col-md-2.5"><th><b>First Name</b></th></div>
-			  <div class="col-md-2.5"><th><b>Last Name</b></th></div>
-			  <div class="col-md-5"><th><b>Slogan</b></th></div>
-			  <div class="col-md-2"><th><b><center>Number of Votes</center></b></th></div>
-			</div>
-		</thead>
-		<tbody>
-			<tr>
+	<% Position.all.each do |p| %>
+		<h1><%= "#{Candidate.where(position_id: p.id).count} Candidates for #{p.name}" %></h1>
+		<table class = "table table-striped">
+			<thead>
 				<div class="row">
-				  <div class="col-md-2.5"><td>First Name</td></div>
-				  <div class="col-md-2.5"><td>Last Name</td></div>
-				  <div class="col-md-5"><td>Placeholder Slogan Placeholder Slogan Placeholder Slogan Placeholder Slogan Placeholder</td></div>
-				  <div class="col-md-2"><td><center>X</center></td></div>
+				  <div class="col-md-3"><th><b>Name</b></th></div>
+				  <div class="col-md-7"><th><b>Slogan</b></th></div>
+				  <div class="col-md-2"><th><b><center>Votes</center></b></th></div>
 				</div>
-			</tr>
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				<% Candidate.where(position_id: p.id).each do |c| %>
+				<tr>
+					<div class="row">
+					  <div class="col-md-3"><td><%= "#{c.last_name.upcase}, #{c.first_name}" %></td></div>
+					  <div class="col-md-7"><td><i><%= "#{c.slogan}" %></i></td></div>
+					  <div class="col-md-2"><td><center><%= "#{Vote.where(candidate_id: c.id, position_id: p.id).count}" %></center></td></div>
+					</div>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	<% end %>
 </div>
