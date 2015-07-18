@@ -16,16 +16,16 @@
 						<% if v.candidate > 0 %>
 							<td><%= "#{Candidate.find_by(id: v.candidate).last_name.upcase}, #{Candidate.find_by(id: v.candidate).first_name}" %></td>
 							<td><i><%= "\"#{Vote.find_by(id: v.id).comments}\"" %></i></td>
-							<td><%= link_to 'Edit Vote', voting_edit_path(v.id), class: 'btn btn-success btn-xs' %> <%= link_to 'Abstain', voting_destroy_path, class: 'btn btn-danger btn-xs' %></td>
+							<td><%= link_to 'Edit Vote', edit_voting_path(v.id), class: 'btn btn-success btn-xs' %> <%= link_to 'Abstain', voting_path(v.id), method: :delete, class: 'btn btn-danger btn-xs' %></td>
 						<% elsif v.candidate == 0 %>
 							<td><i>Abstained</i></td>
 							<td><i><%= "\"#{Vote.find_by(id: v.id).comments}\"" %></i></td>
-							<td><%= link_to 'Edit Vote', voting_new_path(v.id), class: 'btn btn-success btn-xs' %> <button type="button" class="btn btn-danger btn-xs" disabled="disabled">Abstain</button></td>
+							<td><%= link_to 'Edit Vote', edit_voting_path(v.id), class: 'btn btn-success btn-xs' %> <button type="button" class="btn btn-danger btn-xs" disabled="disabled">Abstain</button></td>
 						<% end %>
 					<% else %>
 						<td><i>None</i></td>
 						<td><i>Vote not yet cast!</i></td>
-						<td><%= link_to 'New Vote', voting_new_path, class: 'btn btn-primary btn-xs' %> <%= link_to 'Abstain', voting_destroy_path, class: 'btn btn-danger btn-xs' %></td>
+						<td><%= link_to 'New Vote', new_voting_path, position_id: v.position, class: 'btn btn-primary btn-xs' %> <%= link_to 'Abstain', voting_path(v.id), method: :delete, class: 'btn btn-danger btn-xs' %></td>
 					<% end %>
 				</tr>			
 			<% end %>
