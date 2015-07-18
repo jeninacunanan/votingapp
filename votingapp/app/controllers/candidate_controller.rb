@@ -3,7 +3,6 @@ class CandidateController < ApplicationController
 
   def index
     @candidates = Candidate.all
-    @users = User.role :admin
   end
 
   def show
