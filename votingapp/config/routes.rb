@@ -18,8 +18,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources 'users'
-  resources 'candidates'
-  resources 'positions'
+  resources 'candidate'
+  resources 'position'
 
   # resources 'admins'
   resources 'voting'
