@@ -1,8 +1,12 @@
-<h1><%= "Edit Vote for #{@vote.position_id} position" %></h1>
+<h1><%= "Edit Vote for \"#{Position.find_by(@vote.position_id).name}\" position" %></h1>
 
 <%= simple_form_for @vote do |v| %>
-	<%= v.input :candidate_id, as: :select, collection: Candidate.where(position_id: :position_id), label: "Candidate", label_method: lambda {|x| "#{Candidate.find(x).last_name.upcase}, #{Candidate.find(x).first_name}"}, placeholder: "#{Candidate.find(@vote.candidate_id).last_name.upcase}, #{Candidate.find(@vote.candidate_id).first_name}", required: true %>
-	<%= v.input :comments, as: :text, placeholder: v.comments %>
+	<% if @vote.candidate_id != 0 %>
+		<%= v.input :candidate_id, as: :select, collection: Candidate.where(position_id: @vote.position_id), label: "Candidate", label_method: lambda {|x| "#{Candidate.find(x).last_name.upcase}, #{Candidate.find(x).first_name}"}, placeholder: "#{Candidate.find(@vote.candidate_id).last_name.upcase}, #{Candidate.find(@vote.candidate_id).first_name}", required: true %>
+	<% else %>
+		<%= v.input :candidate_id, as: :select, collection: Candidate.where(position_id: @vote.position_id), label: "Candidate", label_method: lambda {|x| "#{Candidate.find(x).last_name.upcase}, #{Candidate.find(x).first_name}"}, required: true %>
+	<% end %>
+	<%= v.input :comments, as: :text, placeholder: "#{@vote.comments}" %>
 	<%= v.button :submit %>
 <% end %>
 <br>
