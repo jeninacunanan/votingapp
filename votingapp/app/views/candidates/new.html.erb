@@ -1,2 +1,7 @@
-<h1>Candidate#new</h1>
-<p>Find me in app/views/candidate/new.html.erb</p>
+<h1>Add New Candidate</h1>
+<%= simple_form_for @candidate do |c| %>
+	<%= p.input :first_name, required: true %>
+	<%= p.input :last_name, required: true %>
+	<%= p.input :slogan, required: true, uniqueness: true %>
+	<%= p.button :submit %>
+<% end %>
