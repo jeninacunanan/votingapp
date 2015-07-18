@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150718144315) do
+ActiveRecord::Schema.define(version: 20150718172143) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20150718144315) do
     t.text     "comments"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "position_id"
   end
 
   add_index "votes", ["candidate_id"], name: "index_votes_on_candidate_id"

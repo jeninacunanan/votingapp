@@ -3,16 +3,7 @@ class VotingController < ApplicationController
   before_action :set_vote, only: [:show, :edit, :update, :destroy]
 
   def index
-    @votes = Array.new
-    Position.all.each do |x|
-      postry = Vote.find_by(user_id: current_user.id, position_id: x.id)
-      if postry != nil
-        @votes << {id: postry.id, position: postry.position_id, candidate: postry.candidate_id, comments: postry.comments}
-      else
-        @votes << {id: -1, position: postry.position_id, candidate: -1, comments: ""}
-        end
-      end
-    end
+    @votes = Vote.where(user_id: current_user.id).order('position_id ASC')
   end
 
   def show
@@ -73,3 +64,4 @@ class VotingController < ApplicationController
     def set_vote
       @vote = Vote.find(params[:id])
     end
+  end
