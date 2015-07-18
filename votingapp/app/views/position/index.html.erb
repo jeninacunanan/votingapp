@@ -1,2 +1,20 @@
-<h1>Position#index</h1>
-<p>Find me in app/views/position/index.html.erb</p>
+<div class = "container">
+	<h1>Positions</h1>
+	<table class = "table table-striped">
+		<thead>
+			<th><b>Name</b></th>
+			<th></th>
+		</thead>
+		<tbody>
+			<% if !@positions.nil? %>
+				<% @positions.each do |p| %>
+					<tr>
+						<td><%= p.name %></td>
+						<td><%= link_to 'Edit', edit_position_path(p.id), class: 'btn btn-success btn-xs' %> <%= link_to 'Delete', position_path(p.id), method: :delete, class: 'btn btn-danger btn-xs' %></button></td>
+					</tr>			
+				<% end %>
+			<% end %>
+		</tbody>
+	</table>
+	<p><%= link_to 'Add new position', new_position_path, class: 'btn btn-default' %></p>
+</div>

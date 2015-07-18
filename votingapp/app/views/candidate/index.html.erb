@@ -1,2 +1,24 @@
-<h1>Candidate#index</h1>
-<p>Find me in app/views/candidate/index.html.erb</p>
+<div class = "container">
+	<h1>Candidates</h1>
+	<table class = "table table-striped">
+		<thead>
+			<th><b>Candidate</b></th>
+			<th><b>Position</b></th>
+			<th><b>Votes</b></th>
+			<th></th>
+		</thead>
+		<tbody>
+			<% if !@candidates.nil? %>
+				<% @candidates.each do |c| %>
+					<tr>
+						<td><%= "#{c.last_name.upcase}, #{c.first_name}" %></td>
+						<td><%= "#{Position.find_by(id: c.position_id).name}" %></td>
+						<td><center><%= "#{Votes.where(candidate_id: c.id, position_id: c.position_id).count}"%></center></td>
+						<td><%= link_to 'Edit', edit_candidate_path(c.id), class: 'btn btn-success btn-xs' %> <%= link_to 'Delete', candidate_path(c.id), method: :delete, class: 'btn btn-danger btn-xs' %></button></td>
+					</tr>			
+				<% end %>
+			<% end %>
+		</tbody>
+	</table>
+	<p><%= link_to 'Add new candidate', new_candidate_path, class: 'btn btn-default' %></p>
+</div>
