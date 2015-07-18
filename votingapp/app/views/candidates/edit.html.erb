@@ -1,5 +1,6 @@
 <h1>Edit Candidate</h1>
-<%= simple_form_for @candidate do |c| %>
+<%= simple_form_for @candidate do |p| %>
+	<%= p.input :position_id, as: :select, collection: Position.all, label: "Position", error: 'Position is required.', label_method: lambda {|x| "#{Position.find(x).name}"}, required: true %>
 	<%= p.input :first_name, error: 'Field is required.', required: true %>
 	<%= p.input :last_name, error: 'Field is required.', required: true %>
 	<%= p.input :slogan, error: 'Slogan must be unique.', required: true, uniqueness: true %>
