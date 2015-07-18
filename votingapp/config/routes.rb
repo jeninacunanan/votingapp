@@ -14,11 +14,13 @@ Rails.application.routes.draw do
   # get 'voting/destroy'
 
   # devise_for :admins
+
   devise_for :users
 
   resources 'users'
   resources 'candidates'
   resources 'positions'
+
   # resources 'admins'
   resources 'voting'
 
