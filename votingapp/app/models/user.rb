@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
        
    include RoleModel
    #sets up accessible or protected attributes for model
-   attr_accessible :email, :password, :roles
+   #attr_accessible :email, :password, :roles
 
    roles :admin, :user
 
