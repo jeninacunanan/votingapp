@@ -16,6 +16,9 @@ class VotingController < ApplicationController
   end
 
   def show
+    @vote = Vote.find(params[:id])
+    # require the ability to read votes
+    authorize! :read, @vote
   end
 
   def new
