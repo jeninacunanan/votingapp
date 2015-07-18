@@ -1,2 +1,10 @@
-<h1>Voting#edit</h1>
-<p>Find me in app/views/voting/edit.html.erb</p>
+<h1><%= "Edit Vote for #{@vote.position_id} position" %></h1>
+
+<%= simple_form_for @vote do |v| %>
+	<%= v.input :candidate_id, as: :select, collection: Candidate.where(position_id: :position_id), label: "Candidate", label_method: lambda {|x| "#{Candidate.find(x).last_name.upcase}, #{Candidate.find(x).first_name}"}, placeholder: "#{Candidate.find(@vote.candidate_id).last_name.upcase}, #{Candidate.find(@vote.candidate_id).first_name}" %>
+	<%= v.input :comments, as: :text, placeholder: v.comments %>
+	<%= v.button :submit %>
+<% end %>
+<br>
+<%= link_to "Cancel", votes_path, class: 'btn btn-danger' %>
+
