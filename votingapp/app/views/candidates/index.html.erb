@@ -4,7 +4,7 @@
 		<thead>
 			<th><b>Candidate</b></th>
 			<th><b>Position</b></th>
-			<th><b>Votes</b></th>
+			<th><b><center>Votes</center></b></th>
 			<th></th>
 		</thead>
 		<tbody>
@@ -12,8 +12,8 @@
 				<% @candidates.each do |c| %>
 					<tr>
 						<td><%= "#{c.last_name.upcase}, #{c.first_name}" %></td>
-						<td><%= "#{Position.find_by(id: c.position_id).name}" %></td>
-						<td><center><%= "#{Votes.where(candidate_id: c.id, position_id: c.position_id).count}"%></center></td>
+						<td><!--%= "#{Position.find_by(id: c.position_id).name}" %--></td>
+						<td><center><%= "#{Vote.where(candidate_id: c.id, position_id: c.position_id).count}"%></center></td>
 						<td><%= link_to 'Edit', edit_candidate_path(c.id), class: 'btn btn-success btn-xs' %> <%= link_to 'Delete', candidate_path(c.id), method: :delete, class: 'btn btn-danger btn-xs' %></button></td>
 					</tr>			
 				<% end %>
