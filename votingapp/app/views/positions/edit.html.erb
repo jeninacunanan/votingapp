@@ -1,2 +1,5 @@
-<h1>Position#edit</h1>
-<p>Find me in app/views/position/edit.html.erb</p>
+<h1>Edit Position</h1>
+<%= simple_form_for @position do |p| %>
+	<%= p.input :name, error: 'Position name is mandatory!', required: true %>
+	<%= p.button :submit %>
+<% end %>
