@@ -11,11 +11,10 @@
 		<div class="navbar navbar-default navbar-fixed-top container" role="navigation">	
 			<div class="container-fluid">
 					<p class= "navbar-text">
-						<strong><%= link_to 'Election 2016', root_path, :class => 'navbar-link' %></strong>
+						<strong><%= link_to 'Election 2016', root_path, :class => 'navbar-link' %>&nbsp; </strong>
 						|
-						<strong>Vote</strong>
-						|
-						<strong> <%= link_to 'About', about_path, :class => 'navbar-link' %></strong>
+						<strong><% if user_signed_in? %>&nbsp; <%= link_to 'Vote', voting_index_path(current_user.id), :class => 'navbar-link' %>&nbsp; |<% end %></strong>
+						<strong> &nbsp; <%= link_to 'About', about_path, :class => 'navbar-link' %></strong>
 					</p>
 					<p class="navbar-text pull-right">
 					<% if user_signed_in? %>
