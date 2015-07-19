@@ -1,7 +1,7 @@
 <h1>New Vote</h1>
 
 <%= simple_form_for @vote do |v| %>
-	<%= v.input :position_id, as: :select, collection: Position.all, label: "Position", label_method: lambda {|x| "#{Position.find(x).name}"}, required: true %>
+	<%= v.input :position_id, as: :select, collection: @pos_set, label: "Position", label_method: lambda {|x| "#{Position.find(x).name}"}, required: true %>
 	<%= v.input :candidate_id, as: :select, collection: Candidate.all, label: "Candidate", label_method: lambda {|x| "#{Candidate.find(x).last_name.upcase}, #{Candidate.find(x).first_name}"}, required: true %>
 	<%= v.input :comments, as: :text %>
 	<%= v.button :submit %>
