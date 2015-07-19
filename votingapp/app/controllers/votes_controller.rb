@@ -13,8 +13,14 @@ class VotesController < ApplicationController
   end
 
   def new
-    @vote = Vote.new
-    @vote.user_id = current_user.id
+    @pos_set = Position.except(Vote.find_by(user_id: current_user.id)[:position_id])
+    if !@pos_set.nil?
+      @vote = Vote.new
+      @vote.user_id = current_user.id
+    else
+      flash[:alert] = "No more new positions to vote for!"
+      redirect_to votes_path
+    end
   end
 
   def create

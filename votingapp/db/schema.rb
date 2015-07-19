@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150718172143) do
+ActiveRecord::Schema.define(version: 20150719030707) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20150718172143) do
   end
 
   add_index "votes", ["candidate_id"], name: "index_votes_on_candidate_id"
+  add_index "votes", ["position_id"], name: "index_votes_on_position_id"
   add_index "votes", ["user_id"], name: "index_votes_on_user_id"
 
 end
